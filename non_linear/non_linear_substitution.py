@@ -46,8 +46,7 @@ def non_linear_encoder(message_og, key = 'secret'):
         message_og[i] = alphabet_dict[ord(message_og[i]) - 97] 
 
     return ''.join(message_og) 
-
-print(non_linear_encoder('secret'))    
+#Definitely wrong and needs fixing. 
  
 
 
