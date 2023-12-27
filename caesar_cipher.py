@@ -18,14 +18,14 @@ def caesar_cipher_encoder(message, key = 3): # -> By default, the key is three, 
             if message[i] == ' ':
                 message[i] = ' '
             
-            elif ord(str(message[i])) < 97 or ord(str(message[i])) > 122:
+            elif ord(message[i]) < 97 or ord(str(message[i])) > 122:
                 raise UnsupportedCharacterError
 
-            elif ord(str(message[i])) >= 122 - key:
-                message[i] = chr(97 + key - (122 - ord(str(message[i]))) - 1)
+            elif ord(message[i]) >= 122 - key:
+                message[i] = chr(97 + key - (122 - ord(message[i])) - 1)
             
             else:
-                message[i] = chr(ord(str(message[i])) + key)
+                message[i] = chr(ord(message[i]) + key)
 
     except UnsupportedCharacterError:
         return "The text contains a character that is not supported by this algorithm."
@@ -35,4 +35,34 @@ def caesar_cipher_encoder(message, key = 3): # -> By default, the key is three, 
     
     return ''.join(message)
 
-print(caesar_cipher_encoder('bratan priveT 4', 5))
+def caesar_cipher_decoder(message, key = 3): # -> By default, the key is three, Caesar would be proud.
+    if not message:
+        return '' 
+
+    message = list(message.lower())
+
+    try:
+
+        for i in range(len(message)):
+            if message[i] == ' ':
+                message[i] = ' '
+            
+            elif ord(message[i]) < 97 or ord(str(message[i])) > 122:
+                raise UnsupportedCharacterError
+
+            elif ord(message[i]) <= 97 + key:
+                message[i] = chr(122 - (key + (97 - ord(message[i]))) + 1)
+            
+            else:
+                message[i] = chr(ord(message[i]) - key)
+
+    except UnsupportedCharacterError:
+        return "The text contains a character that is not supported by this algorithm."
+
+    except Exception as e:
+        return f'An exception {e} occured.'
+    
+    return ''.join(message)
+
+print(caesar_cipher_encoder('hello', 4))
+print(caesar_cipher_decoder('lipps', 4))
