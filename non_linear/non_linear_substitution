@@ -1,0 +1,3 @@
+def non_linear(message, key):
+    from exceptions import UnsupportedCharacterError
+    
