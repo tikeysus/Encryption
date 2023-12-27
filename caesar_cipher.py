@@ -63,6 +63,3 @@ def caesar_cipher_decoder(message, key = 3): # -> By default, the key is three, 
         return f'An exception {e} occured.'
     
     return ''.join(message)
-
-print(caesar_cipher_encoder('hello', 4))
-print(caesar_cipher_decoder('lipps', 4))
