@@ -38,6 +38,3 @@ def non_linear_encoder(message, key = 'secret'):
         message[character] = alphabet_dict[ord(message[character]) - 97]
 
     return ''.join(message)
-
-#I will follow up and document this on Confluence.
-#This took me way too long.
