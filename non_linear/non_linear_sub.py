@@ -97,3 +97,6 @@ def non_linear_decoder(code, key = 'secret'):
         code[i] = chr(reversed_dict[code[i]] + 97)
 
     return ''.join(code) 
+    
+print(non_linear_encoder('huge', 'cmon'))
+print(non_linear_decoder('euda', '2cmon'))
