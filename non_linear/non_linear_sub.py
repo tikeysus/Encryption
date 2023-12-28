@@ -5,6 +5,7 @@ from exceptions import UnsupportedCharacterError
 #accepted as input.
 
 def non_linear_encoder(message_og, key = 'secret'):
+
     global alphabet_dict
     alphabet_dict = {letter: '' for letter in range(26)}
 
@@ -46,7 +47,12 @@ def non_linear_encoder(message_og, key = 'secret'):
 
     return ''.join(message_og) 
 
-print(non_linear_encoder('huuugeeee')) 
+print(non_linear_encoder('huge'))
 
 def non_linear_decoder(code, key = 'secret'):
-    pass 
+    
+    code = list(code)
+    
+    for character in code:
+        code[character] = chr()
+
