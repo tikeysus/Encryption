@@ -41,19 +41,3 @@ def non_linear_encoder(message, key = 'secret'):
 
 #I will follow up and document this on Confluence.
 #This took me way too long.
-
-<<<<<<< HEAD
-=======
-    message_og = list(message_og)
-
-    for i in range(len(message_og)):
-        message_og[i] = alphabet_dict[ord(message_og[i]) - 97] 
-
-    return ''.join(message_og) 
-#Definitely wrong and needs fixing. 
->>>>>>> d58ba9ab1956cd92e139cdd0bf62dfc90fc62b92
- 
-
-
-
-    
