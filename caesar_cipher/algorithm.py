@@ -15,8 +15,10 @@ def caesar_cipher_encoder(message, key = 3): # -> By default, the key is three, 
     try:
 
         for i in range(len(message)):
-            if message[i] == ' ':
-                message[i] = ' '
+            if (message[i] == ' ' or message[i] == ',' 
+                or message[i] == ':' or message[i] == ';'
+                or message[i] == '.'):
+                continue 
             
             elif ord(message[i]) < 97 or ord(str(message[i])) > 122:
                 raise UnsupportedCharacterError
@@ -44,8 +46,11 @@ def caesar_cipher_decoder(message, key = 3): # -> By default, the key is three, 
     try:
 
         for i in range(len(message)):
-            if message[i] == ' ':
-                message[i] = ' '
+            if (message[i] == ' ' or message[i] == ',' 
+                or message[i] == ':' or message[i] == ';'
+                or message[i] == '.'):
+                continue 
+            
             
             elif ord(message[i]) < 97 or ord(str(message[i])) > 122:
                 raise UnsupportedCharacterError
