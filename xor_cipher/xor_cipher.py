@@ -22,7 +22,3 @@ def char_checker(plaintext, key):
 def key_generator(plaintext):
     key = (''.join(random.choices(string.ascii_letters, k = len(plaintext))))
     return char_checker(plaintext, key)
-
-print(key_generator("Huuge"))
-
-    
