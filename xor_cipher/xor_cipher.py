@@ -1,5 +1,7 @@
 from exceptions import BadKeyLengthError
 from exceptions import UnsupportedCharacterError
+import random
+import string
 
 def algorithm(plaintext, key):
     cypher_text = ""
@@ -15,15 +17,12 @@ def char_checker(plaintext, key):
         if (0 <= ord(char) < 32 or 32 < ord(char) < 65 or
             ord(char) > 122 or 90 < ord(char) < 97):
             raise UnsupportedCharacterError
-    for char in key:
-        if (0 <= ord(char) < 32 or 32 < ord(char) < 65 or
-            ord(char) > 122 or 90 < ord(char) < 97):
-            raise UnsupportedCharacterError
     return algorithm(plaintext, key)
 
-def len_checker(plaintext, key):
-    if len(key) < len(plaintext):
-        raise BadKeyLengthError
+def key_generator(plaintext):
+    key = (''.join(random.choices(string.ascii_letters, k = len(plaintext))))
     return char_checker(plaintext, key)
+
+print(key_generator("Huuge"))
+
     
-print(len_checker("Lukeysus", "Lithuania"))
